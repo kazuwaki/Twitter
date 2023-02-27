@@ -12,6 +12,8 @@ import com.example.twitter.controller.form.UserForm;
 import com.example.twitter.repository.entity.User;
 import com.example.twitter.service.UserService;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping("/twitter")
 public class LoginUser {
@@ -38,14 +40,15 @@ public class LoginUser {
 	 * ログイン処理
 	 */
 	@PostMapping("/loginUser")
-	public ModelAndView loginUser(@ModelAttribute("userForm") UserForm userForm) {
+	public ModelAndView loginUser(@ModelAttribute("userForm") UserForm userForm, HttpSession session) {
 		
 		
 		User user = userService.select(userForm);
 		if(user == null) {
 			return new ModelAndView("/login");
 		}
-		return new ModelAndView("redirect:/Twitter");
+		session.setAttribute("loginUser", user);
+		return new ModelAndView("redirect:/twitter");
 	}
 
 }

@@ -9,8 +9,12 @@
 	<body>
 		<div class="container">
 			<div class="row">
-				<div class="login">
-					<form method="post" action="/twitter/loginUser" th:object="${userForm}">
+				<div class="signup">
+					<form method="post" action="/twitter/signupUser" th:object="${userForm}">
+						<div class="name">
+							<label>Name</label>
+							<input th:field="*{name}"/>
+						</div>
 						<div class="email">
 							<label>Email</label>
 							<input th:field="*{email}"/>
@@ -19,8 +23,8 @@
 							<lable>Password</lable>
 							<input th:field="*{password}"/>
 						</div>
-						<div class="bottun">
-							<input type="submit" value="ログイン" />
+						<div class="buton">
+							<input type="submit" value="新規登録" />
 						</div>
 					</form>
 				</div>
