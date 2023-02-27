@@ -21,7 +21,5 @@ public class HomeController {
 		mav.addObject("loginUser", user);
 		mav.setViewName("/home");
 		return mav;
-	
-		
 	}
 }
