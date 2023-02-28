@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.twitter.controller.form.UserForm;
-import com.example.twitter.repository.entity.User;
 import com.example.twitter.service.UserService;
 
 @Controller
@@ -33,7 +32,7 @@ public class signupController {
 	@PostMapping("/signupUser")
 	public ModelAndView signupUser(@ModelAttribute("userForm") UserForm userForm) {
 		
-		User user = new User();
+		//User user = new User();
 		userService.insert(userForm);
 		return new ModelAndView("redirect:/twitter/login");
 		

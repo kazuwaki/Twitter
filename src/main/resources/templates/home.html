@@ -2,20 +2,41 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 	<head>
 	    <meta charset="UTF-8">
-	    <title>ログイン</title>
+	    <title>Tweet</title>
 	    <link th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}" rel="stylesheet"/>
 	</head>
 	
 	<body>
+		<header>
+			<a href="/twitter/createTweet">新規ツイート</a>
+		</header>
 		<div class="container">
 			<div class="row">
-				<div class="userName">
-					<label>Name</label>
-					<span th:text="${loginUser.name}" />
+				<div class="user-info">
+					<div class="userName">
+						<label>Name</label>
+						<span th:text="${loginUser.name}" />
+					</div>
+					<div class="userEmail">
+						<label>Email</label>
+						<span th:text="${loginUser.email}" />
+					</div>
 				</div>
-				<div class="userEmail">
-					<label>Email</label>
-					<span th:text="${loginUser.email}" />
+				<div class="tweets-info">
+					<article th:each="tweet : ${tweets}">
+						<!--div class="userId">
+							<lable>UserID</lable>
+							<span th:text="${tweet.id}"/>
+						</div-->
+						<div class="title">
+							<lable>Title</lable>
+							<span th:text="${tweet.title}"/>
+						</div>
+						<div class="Body">
+							<lable>Body</lable>
+							<span th:text="${tweet.body}"/>
+						</div>
+					</article>
 				</div>
 			</div>
 		</div>
