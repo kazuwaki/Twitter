@@ -9,6 +9,9 @@
 	<body>
 		<header>
 			<a href="/twitter/createTweet">新規ツイート</a>
+			<form th:action="@{/twitter/user/logout}" th:method="post">
+				<input type="submit" value="ログアウト" />
+			</form>
 		</header>
 		<div class="container">
 			<div class="row">
@@ -24,10 +27,10 @@
 				</div>
 				<div class="tweets-info">
 					<article th:each="tweet : ${tweets}">
-						<!--div class="userId">
+						<div class="userId">
 							<lable>UserID</lable>
 							<span th:text="${tweet.id}"/>
-						</div-->
+						</div>
 						<div class="title">
 							<lable>Title</lable>
 							<span th:text="${tweet.title}"/>
